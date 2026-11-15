@@ -1,0 +1,109 @@
+{
+  "model_version": "2.0.0",
+  "trained_at_utc": "2026-11-15T19:50:16+00:00",
+  "selected_model": "Random forest",
+  "best_params": {
+    "max_depth": 10,
+    "min_samples_leaf": 2,
+    "min_samples_split": 5,
+    "n_estimators": 150
+  },
+  "test_metrics": {
+    "rmse": 278.07950276880086,
+    "mae": 111.80533545049003,
+    "r2": 0.9319052356971478,
+    "adj_r2": 0.9316451334652806,
+    "mape": 0.04072198203312658
+  },
+  "schema": {
+    "stores": {
+      "OUT001": {
+        "Store_Size": "High",
+        "Store_Location_City_Type": "Tier 2",
+        "Store_Type": "Supermarket Type1",
+        "Store_Age_Years": 30
+      },
+      "OUT002": {
+        "Store_Size": "Small",
+        "Store_Location_City_Type": "Tier 3",
+        "Store_Type": "Food Mart",
+        "Store_Age_Years": 19
+      },
+      "OUT003": {
+        "Store_Size": "Medium",
+        "Store_Location_City_Type": "Tier 1",
+        "Store_Type": "Departmental Store",
+        "Store_Age_Years": 18
+      },
+      "OUT004": {
+        "Store_Size": "Medium",
+        "Store_Location_City_Type": "Tier 2",
+        "Store_Type": "Supermarket Type2",
+        "Store_Age_Years": 8
+      }
+    },
+    "categories": {
+      "Product_Sugar_Content": [
+        "Low Sugar",
+        "No Sugar",
+        "Regular"
+      ],
+      "Store_Size": [
+        "High",
+        "Medium",
+        "Small"
+      ],
+      "Store_Location_City_Type": [
+        "Tier 1",
+        "Tier 2",
+        "Tier 3"
+      ],
+      "Store_Type": [
+        "Departmental Store",
+        "Food Mart",
+        "Supermarket Type1",
+        "Supermarket Type2"
+      ],
+      "Product_Id_char": [
+        "DR",
+        "FD",
+        "NC"
+      ],
+      "Product_Type_Category": [
+        "Non Perishables",
+        "Perishables"
+      ]
+    },
+    "numeric_ranges": {
+      "Product_Weight": [
+        4.0,
+        22.0
+      ],
+      "Product_Allocated_Area": [
+        0.004,
+        0.298
+      ],
+      "Product_MRP": [
+        31.0,
+        266.0
+      ],
+      "Store_Age_Years": [
+        8.0,
+        30.0
+      ]
+    },
+    "sugar_by_product_prefix": {
+      "DR": [
+        "Low Sugar",
+        "Regular"
+      ],
+      "FD": [
+        "Low Sugar",
+        "Regular"
+      ],
+      "NC": [
+        "No Sugar"
+      ]
+    }
+  }
+}

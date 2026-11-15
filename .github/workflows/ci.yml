@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - name: Install
+        run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check . && ruff format --check .
+      - name: Test
+        run: pytest
+      - name: Smoke-test committed model through the API
+        run: |
+          python - <<'EOF'
+          import io
+          from api.app import create_app
+          from superkart import config
+          client = create_app().test_client()
+          ok = client.post("/v1/predictbatch", data={"file": (io.BytesIO(config.SAMPLE_CSV.read_bytes()), "s.csv")})
+          assert ok.status_code == 200, ok.get_json()
+          bad = client.post("/v1/predictbatch", data={"file": (open("data/sample/original_brief_batch.csv", "rb"), "b.csv")})
+          assert bad.status_code == 422, "Unseen stores must be rejected"
+          print("Smoke test passed:", len(ok.get_json()["predictions"]), "rows scored")
+          EOF

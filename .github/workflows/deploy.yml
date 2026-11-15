@@ -1,0 +1,64 @@
+# Publishes the API and the app to two Hugging Face Docker Spaces after CI passes on main.
+# The Spaces are created on first run and the app's API_URL / REPO_URL variables are set here,
+# so the only setup is one repository secret: HF_TOKEN (a Hugging Face *write* token).
+name: Deploy to Hugging Face
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  HF_USERNAME: zachsteuer98
+  API_SPACE: retail-sales-api
+  APP_SPACE: retail-sales-app
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        component: [api, app]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Stage Space contents
+        run: |
+          set -euo pipefail
+          mkdir stage
+          cp -r src models reports app api data deploy stage/
+          # Each Space expects its Dockerfile and README (with Space metadata) at the root.
+          cp deploy/${{ matrix.component }}/Dockerfile deploy/${{ matrix.component }}/README.md stage/
+      - name: Create/update ${{ matrix.component }} Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          COMPONENT: ${{ matrix.component }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          pip install --quiet huggingface_hub==0.27.0
+          python - <<'EOF'
+          import os
+          from huggingface_hub import HfApi
+
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          user = os.environ["HF_USERNAME"]
+          space = os.environ["API_SPACE"] if os.environ["COMPONENT"] == "api" else os.environ["APP_SPACE"]
+          repo_id = f"{user}/{space}"
+          api.create_repo(repo_id, repo_type="space", space_sdk="docker", exist_ok=True)
+          if os.environ["COMPONENT"] == "app":
+              api.add_space_variable(repo_id, "API_URL", f"https://{user}-{os.environ['API_SPACE']}.hf.space")
+              api.add_space_variable(repo_id, "REPO_URL", os.environ["REPO_URL"])
+          api.upload_folder(
+              repo_id=repo_id,
+              repo_type="space",
+              folder_path="stage",
+              delete_patterns="*",  # remove files that no longer exist in the repo
+              commit_message=f"Deploy {os.environ['GITHUB_SHA'][:7]}",
+          )
+          print("Deployed", repo_id)
+          EOF

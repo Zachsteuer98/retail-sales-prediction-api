@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "superkart"
+version = "2.0.0"
+description = "Product-store sales prediction for a retail chain: model, Flask API, and Streamlit demo."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+authors = [{ name = "Zach Steuer" }]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "SIM"]
+ignore = ["N803", "N806"]  # X / X_train is the ML convention
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

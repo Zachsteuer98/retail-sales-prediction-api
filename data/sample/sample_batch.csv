@@ -1,0 +1,26 @@
+Product_Weight,Product_Allocated_Area,Product_MRP,Store_Age_Years,Product_Sugar_Content,Store_Size,Store_Location_City_Type,Store_Type,Product_Id_char,Product_Type_Category,Store_Id,Actual_Sales
+11.03,0.185,183.66,8,Regular,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3835.57
+10.76,0.035,138.59,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,2851.78
+13.06,0.112,87.14,30,Regular,High,Tier 2,Supermarket Type1,FD,Perishables,OUT001,2320.84
+13.27,0.069,194.1,30,Regular,High,Tier 2,Supermarket Type1,FD,Perishables,OUT001,4556.64
+10.92,0.295,157.14,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Non Perishables,OUT004,3269.1
+12.31,0.067,172.49,8,Regular,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3897.33
+15.71,0.063,148.95,30,Low Sugar,High,Tier 2,Supermarket Type1,FD,Perishables,OUT001,4184.52
+11.81,0.07,128.82,8,Regular,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,2889.43
+12.69,0.076,155.65,8,Regular,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3638.99
+11.33,0.03,145.97,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3133.61
+15.8,0.09,183.34,30,Low Sugar,High,Tier 2,Supermarket Type1,FD,Perishables,OUT001,4907.46
+9.52,0.076,128.96,30,Low Sugar,High,Tier 2,Supermarket Type1,FD,Perishables,OUT001,2375.5
+13.39,0.04,196.18,30,Regular,High,Tier 2,Supermarket Type1,FD,Perishables,OUT001,4625.21
+13.26,0.01,180.65,18,No Sugar,Medium,Tier 1,Departmental Store,NC,Non Perishables,OUT003,4277.59
+17.24,0.069,224.3,18,Low Sugar,Medium,Tier 1,Departmental Store,DR,Non Perishables,OUT003,6071.0
+9.19,0.133,119.26,19,No Sugar,Small,Tier 3,Food Mart,NC,Non Perishables,OUT002,2102.94
+10.77,0.014,129.05,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,2658.68
+11.62,0.055,156.79,8,Regular,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3420.0
+11.23,0.067,148.57,8,Regular,Medium,Tier 2,Supermarket Type2,FD,Non Perishables,OUT004,3163.79
+12.53,0.153,138.85,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3257.83
+15.76,0.036,147.44,30,Low Sugar,High,Tier 2,Supermarket Type1,FD,Non Perishables,OUT001,4164.22
+13.08,0.079,168.87,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3997.8
+9.75,0.009,116.15,19,Low Sugar,Small,Tier 3,Food Mart,FD,Non Perishables,OUT002,2165.05
+13.55,0.029,147.92,8,Low Sugar,Medium,Tier 2,Supermarket Type2,FD,Perishables,OUT004,3674.98
+10.15,0.016,104.0,19,No Sugar,Small,Tier 3,Food Mart,NC,Non Perishables,OUT002,2007.09

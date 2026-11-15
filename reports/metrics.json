@@ -1,0 +1,105 @@
+{
+  "selected": "Random forest",
+  "models": {
+    "Store-average baseline": {
+      "cv_rmse": 603.4209072641268,
+      "cv_rmse_std": 11.310181769971248,
+      "best_params": {},
+      "test": {
+        "rmse": 603.5472989684595,
+        "mae": 475.63970037546636,
+        "r2": 0.6792265715528605,
+        "adj_r2": 0.6780013101760571,
+        "mape": 0.17096629938638805
+      }
+    },
+    "Linear regression": {
+      "cv_rmse": 452.8533796201261,
+      "cv_rmse_std": 15.398132888853414,
+      "best_params": {},
+      "test": {
+        "rmse": 434.0424113565811,
+        "mae": 260.2677867089824,
+        "r2": 0.8341024013463123,
+        "adj_r2": 0.833468720679186,
+        "mape": 0.09990214333782493
+      }
+    },
+    "Decision tree": {
+      "cv_rmse": 318.6539416450219,
+      "cv_rmse_std": 19.814470102270135,
+      "best_params": {
+        "max_depth": 10,
+        "min_samples_leaf": 5
+      },
+      "test": {
+        "rmse": 295.6327719337432,
+        "mae": 138.69768368013618,
+        "r2": 0.9230371900728149,
+        "adj_r2": 0.922743214481038,
+        "mape": 0.05051538634528854
+      }
+    },
+    "Random forest": {
+      "cv_rmse": 289.2465305758948,
+      "cv_rmse_std": 19.73619746574751,
+      "best_params": {
+        "max_depth": 10,
+        "min_samples_leaf": 2,
+        "min_samples_split": 5,
+        "n_estimators": 150
+      },
+      "test": {
+        "rmse": 278.07950276880086,
+        "mae": 111.80533545049003,
+        "r2": 0.9319052356971478,
+        "adj_r2": 0.9316451334652806,
+        "mape": 0.04072198203312658
+      }
+    },
+    "Gradient boosting": {
+      "cv_rmse": 299.4356671726213,
+      "cv_rmse_std": 17.53530036039438,
+      "best_params": {
+        "max_depth": 4,
+        "n_estimators": 150
+      },
+      "test": {
+        "rmse": 286.9831287418129,
+        "mae": 128.1596757545593,
+        "r2": 0.9274748732224575,
+        "adj_r2": 0.927197848292062,
+        "mape": 0.046760668092564545
+      }
+    },
+    "XGBoost": {
+      "cv_rmse": 290.7827582564015,
+      "cv_rmse_std": 18.491026687506942,
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "n_estimators": 100,
+        "subsample": 0.8
+      },
+      "test": {
+        "rmse": 282.4027468298324,
+        "mae": 115.67049139453052,
+        "r2": 0.9297714667957756,
+        "adj_r2": 0.9295032141861338,
+        "mape": 0.044035098549321985
+      }
+    }
+  },
+  "permutation_importance": {
+    "Store_Location_City_Type": 567.3554959220912,
+    "Product_MRP": 486.89120121338254,
+    "Product_Weight": 379.1041892952185,
+    "Store_Size": 328.61278214399124,
+    "Store_Type": 312.5777375493275,
+    "Store_Age_Years": 39.951315630422975,
+    "Product_Allocated_Area": 0.6766425440509465,
+    "Product_Sugar_Content": 0.1205327254870383,
+    "Product_Type_Category": 0.10312433312514031,
+    "Product_Id_char": 0.004475712221801586
+  }
+}

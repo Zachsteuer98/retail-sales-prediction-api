@@ -1,4 +1,27 @@
+# Python
 __pycache__/
-.config/
-drive/
-sample_data/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Full dataset stays local; small demo samples in data/sample/ are committed.
+data/raw/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Secrets
+.env
+
+# Files the notebook regenerates when re-run
+notebooks/backend_files/
+notebooks/frontend_files/
+notebooks/docker-compose.yml
+notebooks/*.joblib

@@ -1,22 +1,21 @@
-version: '3.8'
-
+# Run the full stack locally: docker compose up --build
+# UI: http://localhost:8501   API: http://localhost:7860/health
 services:
-  backend:
-    build: ./backend_files
+  api:
+    build:
+      context: .
+      dockerfile: deploy/api/Dockerfile
     ports:
       - "7860:7860"
-    networks:
-      - superkart-net
 
-  frontend:
-    build: ./frontend_files
+  app:
+    build:
+      context: .
+      dockerfile: deploy/app/Dockerfile
+    environment:
+      API_URL: http://api:7860
     ports:
-      - "8501:8501"
+      - "8501:7860"
     depends_on:
-      - backend
-    networks:
-      - superkart-net
-
-networks:
-  superkart-net:
-    driver: bridge
+      api:
+        condition: service_healthy
