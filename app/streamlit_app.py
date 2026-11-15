@@ -1,4 +1,4 @@
-"""Streamlit demo for the SuperKart sales model. All predictions go through the Flask API.
+"""Streamlit demo for the Retail Sales Prediction model. All predictions go through the Flask API.
 
 Run locally:
     streamlit run app/streamlit_app.py
@@ -13,10 +13,10 @@ import pandas as pd
 import requests
 import streamlit as st
 
-from superkart import config
-from superkart.urls import normalize_base_url
+from retail_sales import config
+from retail_sales.urls import normalize_base_url
 
-logger = logging.getLogger("superkart.app")
+logger = logging.getLogger("retail_sales.app")
 
 API_URL = normalize_base_url(os.environ.get("API_URL", "http://localhost:7860"))
 REPO_URL = normalize_base_url(
@@ -26,7 +26,7 @@ ORIGINAL_BATCH_CSV = config.SAMPLE_DATA_DIR / "original_brief_batch.csv"
 REQUEST_TIMEOUT_SECONDS = 90  # a sleeping free-tier API Space needs time to cold-start
 PRODUCT_PREFIX_LABELS = {"FD": "FD (food)", "DR": "DR (drinks)", "NC": "NC (non-consumables)"}
 
-st.set_page_config(page_title="SuperKart | Sales Prediction", page_icon="🛒", layout="wide")
+st.set_page_config(page_title="Retail Sales Prediction", page_icon="🛒", layout="wide")
 
 
 def call_api(method: str, path: str, **kwargs) -> tuple[int | None, dict | None]:
@@ -70,9 +70,9 @@ def show_validation_errors(body: dict) -> None:
 
 
 def render_header() -> None:
-    st.title("🛒 SuperKart: Product-Store Sales Prediction")
+    st.title("🛒 Retail Sales Prediction")
     st.markdown(
-        "Predicts the total sales of a product in one of SuperKart's stores from product attributes "
+        "Predicts the total sales of a product in one of a retail chain's stores from product attributes "
         "(price, weight, display area) and which store it sells in. "
         f"[Source code & notebook]({REPO_URL}) · [API health]({API_URL}/health)"
     )
@@ -147,7 +147,9 @@ def score_file(name: str, data: bytes) -> None:
         else:
             st.success(f"{len(df)} rows scored")
         st.dataframe(df, use_container_width=True, hide_index=True)
-        st.download_button("Download results", df.to_csv(index=False).encode(), "superkart_predictions.csv")
+        st.download_button(
+            "Download results", df.to_csv(index=False).encode(), "retail_sales_predictions.csv"
+        )
     elif body:
         show_validation_errors(body)
 

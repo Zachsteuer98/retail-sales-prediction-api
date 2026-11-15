@@ -26,7 +26,7 @@ jobs:
           python - <<'EOF'
           import io
           from api.app import create_app
-          from superkart import config
+          from retail_sales import config
           client = create_app().test_client()
           ok = client.post("/v1/predictbatch", data={"file": (io.BytesIO(config.SAMPLE_CSV.read_bytes()), "s.csv")})
           assert ok.status_code == 200, ok.get_json()

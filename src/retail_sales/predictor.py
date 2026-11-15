@@ -8,8 +8,8 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from superkart import config
-from superkart.schema import InputSchema
+from retail_sales import config
+from retail_sales.schema import InputSchema
 
 
 class SalesPredictor(Protocol):
@@ -27,7 +27,7 @@ class JoblibSalesPredictor:
         metadata_path = artifacts_dir / config.METADATA_FILE.name
         if not metadata_path.exists():
             raise FileNotFoundError(
-                f"No trained artifacts in {artifacts_dir}. Run `python -m superkart.train` first."
+                f"No trained artifacts in {artifacts_dir}. Run `python -m retail_sales.train` first."
             )
         metadata = json.loads(metadata_path.read_text())
         self.model_version: str = metadata["model_version"]

@@ -1,6 +1,6 @@
 import pytest
 
-from superkart.urls import normalize_base_url
+from retail_sales.urls import normalize_base_url
 
 EXPECTED = "https://zachsteuer98-retail-sales-api.hf.space"
 

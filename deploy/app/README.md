@@ -1,5 +1,5 @@
 ---
-title: SuperKart Sales Prediction
+title: Retail Sales Prediction
 emoji: 🛒
 colorFrom: green
 colorTo: gray
@@ -8,4 +8,4 @@ app_port: 7860
 pinned: false
 ---
 
-Streamlit demo for the SuperKart product-store sales model. Calls the companion API Space.
+Streamlit demo for the Retail Sales Prediction model. Calls the companion API Space.

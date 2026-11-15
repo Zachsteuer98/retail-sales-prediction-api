@@ -1,4 +1,4 @@
-"""Flask API for SuperKart product-store sales predictions.
+"""Flask API for Retail Sales Prediction (product-store sales).
 
 Run locally:   flask --app api.app run --port 7860
 Production:    gunicorn "api.app:create_app()" --bind 0.0.0.0:7860
@@ -13,11 +13,11 @@ from flask import Flask, jsonify, request
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from werkzeug.exceptions import HTTPException
 
-from superkart import config
-from superkart.predictor import JoblibSalesPredictor, SalesPredictor
-from superkart.schema import validate_record
+from retail_sales import config
+from retail_sales.predictor import JoblibSalesPredictor, SalesPredictor
+from retail_sales.schema import validate_record
 
-logger = logging.getLogger("superkart.api")
+logger = logging.getLogger("retail_sales.api")
 
 MAX_UPLOAD_BYTES = 5 * 1024 * 1024
 MAX_BATCH_ROWS = 1000

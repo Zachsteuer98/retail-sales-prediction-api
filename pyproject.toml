@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "superkart"
+name = "retail-sales-prediction"
 version = "2.0.0"
 description = "Product-store sales prediction for a retail chain: model, Flask API, and Streamlit demo."
 readme = "README.md"

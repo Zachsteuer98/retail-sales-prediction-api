@@ -1,11 +1,11 @@
 import numpy as np
 import pytest
 
-from superkart import config
-from superkart.evaluation import adjusted_r2, regression_report
-from superkart.features import prepare
-from superkart.models import StoreMeanBaseline
-from superkart.schema import learn_schema, validate_record
+from retail_sales import config
+from retail_sales.evaluation import adjusted_r2, regression_report
+from retail_sales.features import prepare
+from retail_sales.models import StoreMeanBaseline
+from retail_sales.schema import learn_schema, validate_record
 
 
 def test_prepare_engineers_features_and_fixes_labels(raw_rows):

@@ -1,5 +1,5 @@
 # Frontend: Streamlit demo with no ML dependencies; all inference goes through the API.
-#   docker build -f deploy/app/Dockerfile -t superkart-app .
+#   docker build -f deploy/app/Dockerfile -t retail-sales-app .
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

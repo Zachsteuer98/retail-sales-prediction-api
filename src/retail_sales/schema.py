@@ -9,7 +9,7 @@ from dataclasses import asdict, dataclass
 
 import pandas as pd
 
-from superkart import config
+from retail_sales import config
 
 
 @dataclass(frozen=True)

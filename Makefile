@@ -4,7 +4,7 @@ install:
 	pip install -r requirements-dev.txt
 
 train:
-	python -m superkart.train
+	python -m retail_sales.train
 
 api:
 	flask --app "api.app:create_app()" run --port 7860 --debug

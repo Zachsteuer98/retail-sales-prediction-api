@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from superkart.schema import InputSchema
+from retail_sales.schema import InputSchema
 
 STORES = {
     "OUT001": {

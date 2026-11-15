@@ -1,5 +1,5 @@
 # Backend: Flask API served by gunicorn. Build from the repo root:
-#   docker build -f deploy/api/Dockerfile -t superkart-api .
+#   docker build -f deploy/api/Dockerfile -t retail-sales-api .
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

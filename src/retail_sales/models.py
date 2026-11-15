@@ -11,7 +11,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
 
-from superkart import config
+from retail_sales import config
 
 
 class StoreMeanBaseline(BaseEstimator, RegressorMixin):

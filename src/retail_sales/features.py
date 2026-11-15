@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from superkart import config
+from retail_sales import config
 
 
 def load_raw(path: Path = config.DATA_CSV) -> pd.DataFrame:

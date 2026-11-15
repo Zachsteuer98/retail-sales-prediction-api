@@ -1,4 +1,4 @@
-# SuperKart: Product-Store Sales Prediction
+# Retail Sales Prediction
 
 [![CI](https://github.com/Zachsteuer98/retail-sales-prediction-api/actions/workflows/ci.yml/badge.svg)](https://github.com/Zachsteuer98/retail-sales-prediction-api/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
@@ -7,7 +7,7 @@
 ![Flask](https://img.shields.io/badge/Flask-backend-black)
 ![Streamlit](https://img.shields.io/badge/Streamlit-frontend-FF4B4B)
 
-A model that predicts how much revenue a product will generate in a given store of the SuperKart
+A model that predicts how much revenue a product will generate in a given store of a
 retail chain. It is served through a validated Flask API and a Streamlit app. Merchandising and supply
 teams can use it to estimate what a product should sell in each store and to spot products that are
 under- or over-performing.
@@ -54,7 +54,7 @@ reproduces it (0.9319 / 278.08), so the original conclusion holds under a strict
 
 ```mermaid
 flowchart LR
-    A[SuperKart.csv<br/>8,763 rows] --> B[Clean labels<br/>'reg' → 'Regular']
+    A[Sales data<br/>8,763 rows] --> B[Clean labels<br/>'reg' → 'Regular']
     B --> C[Engineer features<br/>store age, ID prefix,<br/>perishable flag]
     C --> D[70/30 split]
     D --> E[5-fold CV on train<br/>6 candidate models]
@@ -103,7 +103,7 @@ Browser ──► Streamlit app (frontend Space) ──HTTP/JSON──► Flask 
 
 ```
 ├── notebooks/01_eda_and_model_development.ipynb   # original analysis + first deployment
-├── src/superkart/      # config, features, models, schema, evaluation, training, inference
+├── src/retail_sales/      # config, features, models, schema, evaluation, training, inference
 ├── api/                # Flask backend
 ├── app/                # Streamlit frontend
 ├── models/             # trained pipeline + metadata (schema, metrics)

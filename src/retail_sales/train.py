@@ -7,7 +7,7 @@ Fixes from the review of the original notebook:
 - two simple baselines show how much the tree models actually add.
 
 Usage:
-    python -m superkart.train
+    python -m retail_sales.train
 """
 
 import json
@@ -21,14 +21,14 @@ from sklearn.base import clone
 from sklearn.inspection import permutation_importance
 from sklearn.model_selection import GridSearchCV, KFold, train_test_split
 
-from superkart import __version__, config
-from superkart.evaluation import regression_report
-from superkart.features import load_raw, prepare
-from superkart.models import candidates
-from superkart.plots import save_cv_comparison, save_importance, save_predicted_vs_actual
-from superkart.schema import learn_schema
+from retail_sales import __version__, config
+from retail_sales.evaluation import regression_report
+from retail_sales.features import load_raw, prepare
+from retail_sales.models import candidates
+from retail_sales.plots import save_cv_comparison, save_importance, save_predicted_vs_actual
+from retail_sales.schema import learn_schema
 
-logger = logging.getLogger("superkart.train")
+logger = logging.getLogger("retail_sales.train")
 PERMUTATION_REPEATS = 10
 
 
